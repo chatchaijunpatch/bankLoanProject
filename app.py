@@ -53,7 +53,7 @@ def submit():
             data = model.initial(request)
             result = model.prediction(data)
             if result[0] == 0:
-                result = "เสียใจด้วยคุณมีโอกาสที่จะได้รับอนุมัติสินเชื่อส่วนบุคคล"
+                result = "เสียใจด้วยคุณมีโอกาสที่จะไม่ได้รับอนุมัติสินเชื่อส่วนบุคคล"
                 m = " you have little or no chance of getting approved for a personal loan."
                 he1 ="Unfortunately,"
             else:
