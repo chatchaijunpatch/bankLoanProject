@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+      integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+      crossorigin="anonymous"
+    ></script>
+    <title>Predict Loan Result</title>
+
+
+    
+  </head>
+  <form
+    class="needs-validation container container-table align-items-center"
+    novalidate
+    action="/"
+    method="post"
+  >
+    {% block content %}
+  <div class="container">
+      {% for message in get_flashed_messages() %}
+      <div class="alert alert-warning">
+          <button type="button" class="close" data-dismiss="alert">&times;</button>
+          {{ message }}
+      </div>
+      {% endfor %}
+
+      {% block page_content %}{% endblock %}
+  </div>
+  {% endblock %}
+    <!-- <div class="form-row"> -->
+  
+    <header>
+      <h1>Predict Loan Result</h1>
+      <h2>ทำนายผลการกู้เงิน</h2>
+    </header>
+
+    <div class="card justify-content-center ima">
+      <div class="row justify-content-center align-items-center h-100">
+        <!-- <div class="col-md-4 mb-3"> -->
+        <div class="form-group col-sm-10">
+          <label for="validationCustom01">First name: ชื่อ</label>
+          <input
+            type="text"
+            class="form-control"
+            id="validationCustom01"
+            required
+            name="name"
+          />
+          <div class="valid-feedback">Looks good!</div>
+        </div>
+        <!-- <div class="col-md-4 mb-3"> -->
+        <div class="form-group col-sm-10">
+          <label for="validationCustom02">Last name: นามสกุล</label>
+          <input
+            type="text"
+            class="form-control"
+            id="validationCustom02"
+            required
+            name="lastname"
+          />
+          <div class="valid-feedback">Looks good!</div>
+        </div>
+        <!-- <div class="col-md-4 mb-3"> -->
+        <div class="form-group col-sm-10">
+          <label for="validationCustomUsername">Age: อายุ</label>
+          <div class="input-group">
+            <!-- <div class="input-group-prepend">
+            <span class="input-group-text" id="inputGroupPrepend">@</span>
+          </div> -->
+            <input
+              type="date"
+              class="form-control"
+              id="validationCustomUsername"
+              aria-describedby="inputGroupPrepend"
+              required
+              name="age"
+            />
+            <div class="invalid-feedback">Please select your date.</div>
+          </div>
+        </div>
+        <!-- <div class="form-row"> -->
+        <div class="form-group col-sm-10">
+          <label for="validationCustomUsername"
+            >Income: รายได้เฉลี่ยต่อเดือน</label
+          >
+            <div class="input-group">
+              <input
+                type="text"
+                class="form-control"
+                id="validationCustomUsername"
+                required
+                name="income"
+              />
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="">&#3647;</span>
+              </div>
+              <div class="invalid-feedback">Please input Income</div>
+            </div>
+        </div>
+        <div class="form-group col-sm-10">
+          <label for="validationCustomUsername"
+            >Balance: ยอดคงเหลือในบัญชีต่อเดือนเฉลี่ย</label
+          >
+          <div class="input-group">
+          <input
+            type="text"
+            class="form-control"
+            id="validationCustomUsername"
+            required
+            name="balance"
+          />
+          <div class="input-group-prepend">
+                <span class="input-group-text" id="">&#3647;</span>
+              </div>
+          <div class="invalid-feedback">Please input</div>
+          </div>
+        </div>
+        <div class="text-center">
+          <button class="btn btn-dark" type="submit">Submit form</button>
+        </div>
+      </div>
+    </div>
+  </form>
+
+  <script>
+    // Example starter JavaScript for disabling form submissions if there are invalid fields
+    (function () {
+      "use strict";
+      window.addEventListener(
+        "load",
+        function () {
+          // Fetch all the forms we want to apply custom Bootstrap validation styles to
+          var forms = document.getElementsByClassName("needs-validation");
+          // Loop over them and prevent submission
+          var validation = Array.prototype.filter.call(forms, function (form) {
+            form.addEventListener(
+              "submit",
+              function (event) {
+                if (form.checkValidity() === false) {
+                  event.preventDefault();
+                  event.stopPropagation();
+                }
+                form.classList.add("was-validated");
+              },
+              false
+            );
+          });
+        },
+        false
+      );
+    })();
+  </script>
+</html>
+<style>
+  .card {
+    border-radius: 16px;
+    margin: 0 auto;
+    width: 500px;
+    max-width: 100%;
+    min-height: 500px;
+    box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2),
+      0px 5px 8px 0px rgba(0, 0, 0, 0.14), 0px 1px 14px 0px rgba(0, 0, 0, 0.12);
+    overflow: hidden;
+    /* background-image: url(https://source.unsplash.com/collection/905011/1000x1000);
+    background-size: cover; */
+  }
+  * {
+    box-sizing: border-box;
+    position: relative;
+    transition: all 0.3s ease;
+  }
+  /* body,
+  header {
+    background: #fafafa;
+  } */
+  header {
+    padding: 40px;
+    min-height: 200px;
+    text-align: center;
+    color: rgba(0, 0, 0, 0.87);
+  }
+  header > * {
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  header > :last-child {
+    margin-bottom: 0;
+  }
+  html {
+    font-size: 16px;
+  }
+  body {
+    font-family: Open Sans, Verdana, sans-serif;
+    color: rgba(0, 0, 0, 0.87);
+    font-weight: 400;
+    line-height: 1.45;
+  }
+  body,
+  header {
+    background: #fafafa;
+  }
+  header {
+    padding: 40px;
+    min-height: 200px;
+    text-align: center;
+    color: rgba(0, 0, 0, 0.87);
+  }
+  header > * {
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  header > :last-child {
+    margin-bottom: 0;
+  }
+  h1 {
+    margin-bottom: 0.5em;
+    font-weight: inherit;
+    line-height: 1.2;
+    color: #1c5b72;
+    font-size: 2.618em;
+  }
+  h2 {
+    color: #1c5b72;
+  }
+  @media (min-width: 800px) {
+    h1 {
+      font-size: 4.236em;
+      font-weight: 300;
+    }
+  }
+  p {
+    margin-bottom: 1.3em;
+    line-height: 1.618;
+  }
+  @media (min-width: 800px) {
+    p {
+      font-size: 1.3em;
+    }
+  }
+  a {
+    color: #1c5b72;
+    text-decoration: none;
+  }
+  @media (min-width: 180px) {
+    .col-sm-10 {
+      float: left;
+    }
+    .col-sm-10 {
+      width: 80%;
+    }
+  }
+</style>

@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Predict Loan Result</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
+      integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog=="
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+      integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <header>
+      <h1>Prediction</h1>
+      <h2>{{name}} {{lastname}}</h2>
+    </header>
+    <main>
+      <div class="card">
+        <div class="info">
+          <h1 class="title">Result</h1>
+          <p class="description"><span style="color: Red; font-weight: bold;">{{he1}}</span>{{m}}</p>
+          <p class="description">{{resultmessage}}</p>
+          <p class="description">accuracy = {{acc}}%</p>
+          <p class="description">
+            Note this result set is generated using a model generated from the dataset. Therefore, the results shown may not be 100% correct.
+          </p>
+          <p class="description">
+            หมายเหตุชุดผลลัพธ์นี้เกิดจากการใช้โมเดลที่สร้างจากชุดข้อมูล
+            ดังนั้นผลลัพธ์ที่แสดงออกมาอาจไม่ได้ถูกต้อง 100%
+          </p>
+          <div class="text-center">
+            <a href="{{url_for('hello_world')}}"
+              ><button class="btn btn-dark" type="submit">
+                BACK TO HOMEPAGE
+              </button></a
+            >
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
+<style>
+  @import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400");
+  main {
+    padding: 0 64px 64px;
+  }
+  .card {
+    border-radius: 16px;
+    margin: 0 auto;
+    width: 500px;
+    max-width: 100%;
+    min-height: 500px;
+    box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2),
+      0px 5px 8px 0px rgba(0, 0, 0, 0.14), 0px 1px 14px 0px rgba(0, 0, 0, 0.12);
+    overflow: hidden;
+    background-image: url(https://source.unsplash.com/collection/905011/1000x1000);
+    background-size: cover;
+  }
+  .info {
+    position: relative;
+    width: 100%;
+    height: 500px;
+    background-color: #fff;
+    transform: translateY(100%) translateY(-88px) translateZ(0);
+    transition: transform 0.5s ease-out;
+  }
+  .info:before {
+    z-index: -1;
+    display: block;
+    position: absolute;
+    content: " ";
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-image: url(https://source.unsplash.com/collection/905011/1000x1000);
+    filter: blur(10px);
+    background-size: cover;
+    opacity: 0.25;
+    transform: translateY(-100%) translateY(88px) translateZ(0);
+    transition: transform 0.5s ease-out;
+  }
+  .card:hover .info,
+  .card:hover .info:before {
+    transform: translateY(0) translateZ(0);
+  }
+  .title {
+    margin: 0;
+    padding: 24px;
+    font-size: 40px;
+    line-height: 1;
+    color: rgba(0, 0, 0, 0.87);
+  }
+  .description {
+    margin: 0;
+    padding: 0 24px 24px;
+    font-size: 18px;
+    line-height: 1.5;
+  }
+  /* General layout and typography stuff */
+  * {
+    box-sizing: border-box;
+    position: relative;
+    transition: all 0.3s ease;
+  }
+  html {
+    font-size: 16px;
+  }
+  body {
+    font-family: Open Sans, Verdana, sans-serif;
+    color: rgba(0, 0, 0, 0.87);
+    font-weight: 400;
+    line-height: 1.45;
+  }
+  body,
+  header {
+    background: #fafafa;
+  }
+  header {
+    padding: 40px;
+    min-height: 200px;
+    text-align: center;
+    color: rgba(0, 0, 0, 0.87);
+  }
+  header > * {
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  header > :last-child {
+    margin-bottom: 0;
+  }
+  h1 {
+    margin-bottom: 0.5em;
+    font-weight: inherit;
+    line-height: 1.2;
+    color: #1c5b72;
+    font-size: 2.618em;
+  }
+  h2 {
+    color: #1c5b72;
+  }
+  @media (min-width: 800px) {
+    h1 {
+      font-size: 4.236em;
+      font-weight: 300;
+    }
+  }
+  p {
+    margin-bottom: 1.3em;
+    line-height: 1.618;
+  }
+  @media (min-width: 800px) {
+    p {
+      font-size: 1.3em;
+    }
+  }
+  a {
+    color: #1c5b72;
+    text-decoration: none;
+  }
+</style>
