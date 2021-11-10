@@ -60,8 +60,7 @@ def submit():
                 result = "ยินดีด้วยคุณมีโอกาสที่จะได้รับอนุมัติสินเชื่อส่วนบุคคล"
                 m = " you have the opportunity to be approved for a personal loan."
                 he1 ="Congratulations,"
-            acc = (model.accuracy())*100
-            return render_template("result.html", resultmessage = result, name = request.form['name'], lastname = request.form['lastname'], acc = acc, m=m ,he1=he1)
+            return render_template("result.html", resultmessage = result, name = request.form['name'], lastname = request.form['lastname'], m=m ,he1=he1)
     return redirect("index.html")
 
 
