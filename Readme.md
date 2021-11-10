@@ -11,6 +11,7 @@
 - procfile,requirements.txt : เอาไว้ใช้ในการ deploy
 ---
 Note: ใช้ huroku ในการ deploy
+
 Dataset: https://www.kaggle.com/kmldas/loan-default-prediction
 ---
 web: https://bankloanpredictions.herokuapp.com/
