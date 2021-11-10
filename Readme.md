@@ -21,6 +21,7 @@ web: https://bankloanpredictions.herokuapp.com/
 python : https://www.python.org/downloads/
 
 flask : https://flask.palletsprojects.com/en/2.0.x/installation/
+
 ---
 วิธี Run : ไปที่ app.py run คำสั่ง flask run
 รายละเอียด : https://flask.palletsprojects.com/en/2.0.x/quickstart/
